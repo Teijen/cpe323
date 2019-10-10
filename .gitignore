@@ -1,6 +1,8 @@
-*/*
-!.gitignore
-!.c
-!.asm
-!*/.c
-!*/.asm
+/.jxbrowser-data/
+/.metadata/
+/cpe325-lab-demos/
+/dvt/
+/RemoteSystemsTempFiles/
+*/Debug
+*/.*
+*/targetConfigs

@@ -1,0 +1,1 @@
+"./lab1_assignment1_main.obj" "../lnk_msp430fg4618.cmd" -llibc.a 
