@@ -38,7 +38,7 @@ InfLoop:
 			jeq	loop
 			jmp	InfLoop	; Loop here until interrupt
 
-loop:		mov.w	#50000, R15		;Set to (2000 * 10 cc )
+loop:		mov.w	#50000, R15		;Set to (50000 * 10 cc )
 SWDms:		dec.w	R15				; Decrement R15
 			nop
 			nop

@@ -19,7 +19,8 @@ void main(void)
 	WDTCTL = WDTPW | WDTHOLD;	// stop watchdog timer
 	
 	FLL_CTL0 |= XCAP18PF;          // Set load capacitance for xtal 30 no change
-	//P1DIR |= 0x32;                 // P1.1, P1.4 & P1.5 to output direction 33 no change
+	P1DIR |= BIT4;                 // P1.1, P1.4 & P1.5 to output direction 33 no change
+	P1SEL |= BIT4;                  // P1.1, P1.4 & P1.5 to output MCLK, SMCLK & ACLK
 
 	SCFI0 |= FN_2;                 // DCO range control 31
 	SCFQCTL = 30;                  // (74+1) x 32768 = 2.45MHz 32
@@ -29,21 +30,17 @@ void main(void)
 	//P2OUT |= ~0x02;
 	//P2OUT |= 0x04;                   // clear LED1 status
 	P2OUT ^= BIT1;
+
+
+
 	_EINT();                        // enable interrupts
 	P1IE |= BIT0+BIT1;                   // P1.0 interrupt enabled
 	P1IES |= BIT0+BIT1;                  // P1.0 hi/low edge
 	P1IFG &= ~BIT0+BIT1;                 // P1.0 IFG cleared
 
-
-	    unsigned  long int i;
-
-	    while(1)
-	    {
-	     for(i = 0; i < (50000); i++);
-	         {
-	                                                     // LEDs is TOGGLE
-	         }
-	         P2OUT ^= (BIT1 + BIT2);
+	while(1)
+	{
+	        //remake half second toggle
 	    }
 }
 // Port 1 interrupt service routine
